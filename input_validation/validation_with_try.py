@@ -24,6 +24,8 @@ def average(score1, score2, score3):
 
     if score1 < 0:
         raise ValueError
+    if score2 < 0:
+        raise ValueError
 
     return (float(score1) + float(score2) + float(score3)) / 3
 
