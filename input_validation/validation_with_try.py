@@ -7,29 +7,16 @@ Purpose: calculate the average test scores
 """
 
 
-def average():
-    # get score 1 from user input
-    score_one = input('Please enter score 1:')
-    # get score 2 from user input
-    score_two = input('Please enter score 2:')
-    # get score 3 from user input
-    score_three = input('Please enter score 3:')
-
-    # calculate the average of 3 scores and return
-    return (float(score_one) + float(score_two) + float(score_three)) / 3
-
-
 def average(score1, score2, score3):
     # calculate the average of 3 scores and return
-
-    if score1 < 0:
+    try:
+        if score1 < 0 or score2 < 0 or score3 < 0:
+            raise ValueError
+        avg = (float(score1) + float(score2) + float(score3)) / 3
+    except:
         raise ValueError
-    if score2 < 0:
-        raise ValueError
-    if score3 < 0:
-        raise ValueError
-
-    return (float(score1) + float(score2) + float(score3)) / 3
+    else:
+        return avg
 
 
 if __name__ == '__main__':
@@ -38,8 +25,15 @@ if __name__ == '__main__':
     first_name = input('Please enter first name:')
     age = input('Please enter age:')
 
+    # get score 1 from user input
+    score_one = input('Please enter score 1:')
+    # get score 2 from user input
+    score_two = input('Please enter score 2:')
+    # get score 3 from user input
+    score_three = input('Please enter score 3:')
+
     # calculate the average of scores
-    average_scores = average()
+    average_scores = average(score_one, score_two, score_three)
 
     # output the formatted score with person information
     print(f'{last_name}, {first_name} age: {age} average grade: '
